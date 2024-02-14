@@ -16,6 +16,8 @@ async function request(method, url = '/', data) {
     options.body = JSON.stringify(data);
   }
 
+  //! To Do - Add auth headers
+
   try {
     const response = await fetch(host + url, options);
 
