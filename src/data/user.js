@@ -1,4 +1,4 @@
-import { post, get } from './api.js';
+import { post } from './api.js';
 import { setUserData, clearUserData } from '../utils.js';
 
 
