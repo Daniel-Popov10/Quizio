@@ -29,10 +29,9 @@ export async function login(email, password) {
 }
 
 export async function logout() {
-
-    //! To Do - logout throws an error when attempted as per API docs, look for a way to fix
-    // const result = await get('/users/logout');
+    const result = await post('/logout');
     clearUserData();
+    return result;
 }
 
 //! testUser credentials - 'test@mail.com', 'testUser', 'parola123'
