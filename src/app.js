@@ -7,5 +7,3 @@ page(addRender(document.querySelector('main'), document.querySelector('header'))
 page('/', renderHome);
 
 page.start();
-
-console.log('tests')
