@@ -1,0 +1,43 @@
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav a {
+  text-decoration: none;
+  color: rgb(224, 224, 224);
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.navigation-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-right: 5rem;
+}
+
+.title {
+  font-size: 4rem;
+  margin-left: 5rem;
+}
+
+.title span {
+  color: var(--primary);
+}
+
+.border {
+  position: relative;
+}
+
+.border::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background: rgb(236, 236, 236);
+  top: 100%;
+  width: 95%;
+  left: 50%;
+  transform: translateX(-50%);
+}
