@@ -1,0 +1,51 @@
+img,
+picture,
+video {
+  max-width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  padding-top: 2.3rem;
+  --primary: rgb(252, 200, 34);
+  --secondary: rgb(51, 51, 51);
+  --white: rgb(255, 255, 255);
+}
+
+a[disabled] {
+  cursor: default;
+  pointer-events: none;
+}
+
+.white-btn {
+  background-color: transparent;
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border: 2px solid var(--primary);
+}
+
+.yellow-btn {
+  background-color: var(--primary);
+  font-family: Poppins, sans-serif;
+  font-weight: 500;
+  border: 2px solid var(--primary);
+}
+
+.white-btn a {
+  display: block;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  color: var(--primary);
+}
+
+.yellow-btn a {
+  display: block;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  color: var(--white);
+}
