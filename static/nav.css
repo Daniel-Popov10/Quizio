@@ -1,26 +1,25 @@
 nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 3rem;
 }
 
 nav a {
   text-decoration: none;
   color: rgb(224, 224, 224);
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  white-space: nowrap;
 }
 
-.navigation-container {
+.navigation-wrapper {
   display: flex;
-  gap: 2rem;
   align-items: center;
-  margin-right: 5rem;
+  justify-content: space-around;
 }
 
 .title {
   font-size: 4rem;
-  margin-left: 5rem;
 }
 
 .title span {
@@ -35,9 +34,54 @@ nav a {
   content: '';
   position: absolute;
   height: 2px;
-  background: rgb(236, 236, 236);
+  background-color: rgb(236, 236, 236);
   top: 100%;
   width: 95%;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.expand-nav,
+.compress-nav {
+  background-color: transparent;
+  border: none;
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+  nav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 2rem;
+    transform: translateX(-100%);
+    left: 0;
+    top: 0;
+    width: 100dvw;
+    padding: 3rem 0 3rem 0;
+    background-color: var(--secondary);
+    z-index: 100;
+  }
+
+  .compress-nav {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+  }
+
+  .show-menu {
+    transform: translateX(0);
+    transition: 0.5s;
+  }
+
+  .hide-menu {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 768px) {
+  .expand-nav,
+  .compress-nav {
+    display: none;
+  }
 }
