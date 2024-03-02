@@ -5,21 +5,20 @@ nav {
 }
 
 nav a {
-  text-decoration: none;
-  color: rgb(224, 224, 224);
+  color: var(--secondary);
   font-weight: 400;
-  font-size: 1.2rem;
-  white-space: nowrap;
 }
 
 .navigation-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .title {
-  font-size: 4rem;
+  font-size: 4em;
+  color: var(--black);
 }
 
 .title span {
@@ -42,46 +41,43 @@ nav a {
 }
 
 .expand-nav,
-.compress-nav {
+.close-nav {
   background-color: transparent;
   border: none;
 }
 
-@media (min-width: 280px) and (max-width: 767px) {
+@media (min-width: 280px) and (max-width: 769px) {
   nav {
+    display: none;
+  }
+
+  .mobile-nav {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     gap: 2rem;
-    transform: translateX(-100%);
-    left: 0;
     top: 0;
     width: 100dvw;
     padding: 3rem 0 3rem 0;
-    background-color: var(--secondary);
+    background-color: var(--black);
     z-index: 100;
   }
 
-  .compress-nav {
+  .close-nav {
     position: absolute;
     top: 10%;
     right: 5%;
   }
-
-  .show-menu {
-    transform: translateX(0);
-    transition: 0.5s;
-  }
-
-  .hide-menu {
-    transform: translateX(-100%);
-  }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .expand-nav,
   .compress-nav {
+    display: none;
+  }
+
+  .mobile-nav {
     display: none;
   }
 }
