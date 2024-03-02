@@ -15,8 +15,8 @@ body {
   font-weight: 400;
   padding-top: 2.3rem;
   --primary: rgb(252, 200, 34);
-  --secondary: rgb(51, 51, 51);
-  --white: rgb(255, 255, 255);
+  --secondary: rgb(224, 224, 224);
+  --black: rgb(51, 51, 51);
 }
 
 a[disabled] {
@@ -47,5 +47,10 @@ a[disabled] {
 .yellow-btn a {
   display: block;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  color: var(--white);
+  color: rgb(255, 255, 255);
+}
+
+a {
+  font-size: 1.5em;
+  text-decoration: none;
 }
