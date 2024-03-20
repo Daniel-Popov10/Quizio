@@ -10,7 +10,7 @@ export const navTemplate = () => html` <div class="navigation-wrapper">
 
     <nav>
       <a href="">Browse</a>
-      <a href="">Create a quiz</a>
+      <a href="/create">Create a quiz</a>
       <a href="">About us</a>
       <button class="white-btn">
         <a href="/login">Sign in</a>
@@ -22,7 +22,7 @@ export const navTemplate = () => html` <div class="navigation-wrapper">
         <i class="fa-solid fa-x fa-3x" style="color: var(--primary);"></i>
       </button>
       <a href="">Browse</a>
-      <a href="">Create a quiz</a>
+      <a href="/create">Create a quiz</a>
       <a href="">About us</a>
       <button class="white-btn">
         <a href="/login">Sign in</a>
