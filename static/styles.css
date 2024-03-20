@@ -29,6 +29,7 @@ a[disabled] {
   font-family: Poppins, sans-serif;
   font-weight: 500;
   border: 2px solid var(--primary);
+  cursor: pointer;
 }
 
 .yellow-btn {
@@ -36,6 +37,10 @@ a[disabled] {
   font-family: Poppins, sans-serif;
   font-weight: 500;
   border: 2px solid var(--primary);
+  color: rgb(255, 255, 255);
+  font-size: 1em;
+  box-shadow: 0 5px 20px 0 var(--primary, 0.01);
+  cursor: pointer;
 }
 
 .white-btn a {
