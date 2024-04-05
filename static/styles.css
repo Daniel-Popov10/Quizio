@@ -15,7 +15,7 @@ body {
   font-weight: 400;
   padding-top: 2.3rem;
   --primary: rgb(252, 200, 34);
-  --secondary: rgb(224, 224, 224);
+  --secondary: rgb(130, 130, 130);
   --black: rgb(51, 51, 51);
 }
 
@@ -29,7 +29,6 @@ a[disabled] {
   font-family: Poppins, sans-serif;
   font-weight: 500;
   border: 2px solid var(--primary);
-  cursor: pointer;
 }
 
 .yellow-btn {
@@ -40,7 +39,6 @@ a[disabled] {
   color: rgb(255, 255, 255);
   font-size: 1em;
   box-shadow: 0 5px 20px 0 var(--primary, 0.01);
-  cursor: pointer;
 }
 
 .white-btn a {
@@ -58,4 +56,8 @@ a[disabled] {
 a {
   font-size: 1.5em;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
 }
