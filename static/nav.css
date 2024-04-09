@@ -47,7 +47,7 @@ nav a {
 }
 
 @media (min-width: 280px) and (max-width: 769px) {
-  nav {
+  .desktop-nav {
     display: none;
   }
 
@@ -56,12 +56,18 @@ nav a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 2rem;
     top: 0;
     width: 100dvw;
     padding: 3rem 0 3rem 0;
     background-color: var(--black);
     z-index: 100;
+  }
+
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
   }
 
   .close-nav {
