@@ -57,6 +57,7 @@
 .correct-answer-container {
   border: 1px solid var(--secondary);
   border-top: 0;
+  padding: .2rem;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -92,10 +93,14 @@ border: none;
   }
 
   .add-question {
-    padding: .8rem 1rem;
+    padding: .5rem 1rem;
   }
 
   .delete-question {
+    padding: .5rem;
+  }
+
+  .save-quiz {
     padding: .5rem;
   }
 
@@ -119,7 +124,11 @@ border: none;
   }
 
   .delete-question {
-    padding: 1rem;
+    padding: .8rem;
+  }
+
+  .save-quiz {
+    padding: .8rem;
   }
 
   .create-title {
