@@ -1,7 +1,9 @@
-import { html } from '../../node_modules/lit-html/lit-html.js';
+import { html } from '../../node_modules/lit-html/lit-html.js';  
+import { submitHandler, createPointer } from '../utils.js';
+import { createQuiz } from '../data/quiz.js';
 
-const createQuizTemplate = () => html` <div class="create-wrapper">
-  <form class="create-form">
+const createQuizTemplate = (onSubmit) => html` <div class="create-wrapper">
+  <form @submit=${onSubmit} class="create-form">
     <p class="create-title">Create your quiz</p>
 
     <div class="quiz-title">
@@ -21,7 +23,7 @@ const createQuizTemplate = () => html` <div class="create-wrapper">
         <label for="correct-answer"> Correct answer </label>
         <input type="checkbox" name="correct-answer" id="correct-answer" />
         <button class="delete-answer">
-        <i class="fa-solid fa-trash fa-lg" style="color: var(--primary);"></i>
+        <i class="fa-regular fa-trash-can fa-xl" style="color: var(--primary);"></i>
         </button>
       </div>
       </div>
@@ -33,9 +35,24 @@ const createQuizTemplate = () => html` <div class="create-wrapper">
       <i class="fa-solid fa-plus"></i>
       Click to add question
     </button>
+
+    <button class="white-btn save-quiz">
+      Save quiz
+    </button>
   </form>
 </div>`;
 
 export function renderCreate(ctx) {
-    ctx.render(createQuizTemplate());
+    ctx.render(createQuizTemplate(submitHandler(onSubmit)));
+
+    async function onSubmit(data) {
+      const { title } = data;
+
+      if (title === '') {
+       return alert('Please fill out of required fields');
+      }
+
+      const tempOwner = createPointer('_User', '2zfwlx9YTT'); //! Replace with logged in user's objectID
+      await createQuiz({ title, owner: tempOwner });
+    }
 }
