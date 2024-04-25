@@ -22,9 +22,9 @@ const createQuizTemplate = (onSubmit, createQuestion) => html`
   </form>
 </div>`;
 
-const newQuestionTemplate = (deleteQuestion) => html`
-    <div @click=${deleteQuestion} class="question-container">
-      <button  class="white-btn delete-question" title="test">
+const newQuestionTemplate = (deleteQuestion, createAnswer) => html`
+    <div class="question-container">
+      <button @click=${deleteQuestion} class="white-btn delete-question" title="test">
         Delete question
         <i class="fa-regular fa-trash-can fa-lg" style="margin-left: 2px;"></i>
       </button>
@@ -35,10 +35,18 @@ const newQuestionTemplate = (deleteQuestion) => html`
       <div class="answer-container">
     <div class="answer">
       <label for="answer"></label>
-      <input type="text" name="answer" id="answer" placeholder="New answer" />
+      <input @input=${createAnswer} type="text" name="answer" id="answer" placeholder="New answer" />
    </div>
       </div>
     </div>`;
+
+const correctAnswerTemplate = (deleteAnswer) => html` <div class="correct-answer-container">
+  <label for="correct-answer"> Correct answer </label>
+  <input type="checkbox" name="correct-answer" id="correct-answer" />
+  <button @click=${deleteAnswer} class="delete-answer">
+    <i class="fa-regular fa-trash-can fa-xl" style="color: var(--primary);"></i>
+  </button>
+</div>`;
 
 export function renderCreate(ctx) {
   const questionList = [];
@@ -47,6 +55,7 @@ export function renderCreate(ctx) {
   
 
   async function onSubmit(data) {
+    console.log(data);
     const { title } = data;
 
     if (title === '') {
@@ -62,17 +71,37 @@ export function renderCreate(ctx) {
      questionList.push(newQuestionTemplate);
      const form = document.querySelector('.create-form');
      const renderBefore = document.querySelector('.add-question');
-     render(questionList.map(((question) => html`${question(deleteQuestion)}`)), form, { renderBefore });
+     render(questionList.map(((question) => html`${question(deleteQuestion, createAnswer)}`)), form, { renderBefore });
      anime({ targets: e.target.previousElementSibling, opacity: '100%', duration: 800, easing: 'linear' });
-     e.target.previousElementSibling.scrollIntoView();
+     e.target.previousElementSibling !== null ? e.target.previousElementSibling.scrollIntoView() : null;
   }
 
   function deleteQuestion(e) {
     e.preventDefault();
     const confirmation = confirm('Are you sure you want to delete this question?');
     if (confirmation) {
-      e.currentTarget.remove();
+      e.currentTarget.parentElement ? e.currentTarget.parentElement.remove() : e.target.parentElement.remove();
     }
   }
 }
 
+const createAnswer = {
+  handleEvent(e) {
+    const newAnswerContainer = e.currentTarget.parentElement.cloneNode(true);
+    const input = newAnswerContainer.querySelector('input');
+    input.value = '';
+    render(correctAnswerTemplate(deleteAnswer), e.currentTarget.parentElement);
+    e.currentTarget.parentElement.parentElement.appendChild(newAnswerContainer);
+    input.addEventListener('input', createAnswer, { once: true });
+  },
+  once: true,
+};
+
+function deleteAnswer(e) {
+  e.preventDefault();
+  
+  const confirmation = confirm('Are you sure you want to delete this answer?');
+  if (confirmation) {
+    e.currentTarget.parentElement.parentElement.remove();
+  }
+}
